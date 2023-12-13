@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Toy types</h1>
+
+<div id="toy_types">
+  <% @toy_types.each do |toy_type| %>
+    <%= render toy_type %>
+    <p>
+      <%= link_to "Show this toy type", toy_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New toy type", new_toy_type_path %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @toy_type %>
+
+<div>
+  <%= link_to "Edit this toy type", edit_toy_type_path(@toy_type) %> |
+  <%= link_to "Back to toy types", toy_types_path %>
+
+  <%= button_to "Destroy this toy type", @toy_type, method: :delete %>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toy: one
+  quantity_sold: 1
+  sale_date: 2023-12-13 22:37:38
+  total_price: 9.99
+
+two:
+  toy: two
+  quantity_sold: 1
+  sale_date: 2023-12-13 22:37:38
+  total_price: 9.99

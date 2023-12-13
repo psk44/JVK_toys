@@ -1,0 +1,16 @@
+
+<%= simple_form_for(@sale) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :toy %>
+    <%= f.input :quantity_sold %>
+    <%= f.input :sale_date %>
+    <%= f.input :total_price %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
