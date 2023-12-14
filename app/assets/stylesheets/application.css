@@ -7,8 +7,5 @@ fieldset legend {
 } 
 #navbarNav {
   display: flex;
-}
-body {
-  background-color: #343a40;
-  color: #ffffff; 
+  justify-content: space-between;
 }

@@ -5,7 +5,8 @@
 
   <div class="form-inputs">
     <%= f.association :toy %>
-    <%= f.input :score %>
+    <%= f.label :score %>
+    <%= f.select :score, options_for_select(1..5), {}, { class: 'form-select' } %>
     <%= f.input :review %>
   </div>
 
