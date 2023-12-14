@@ -4,9 +4,10 @@
   <thead>
     <tr>
       <th>Toy</th>
-      <th>Quantity in Stock</th>
+      <th>Inventory</th>
       <th>Total Worth</th>
-      <th>Suppliers</th>
+      <th>Sold</th>
+      <th>Ratings</th>
     </tr>
   </thead>
   <tbody>
@@ -15,10 +16,10 @@
         <td><%= toy.name %></td>
         <td><%= toy.inventory.quantity %></td>
         <td>$<%= toy.total_worth %></td>
-        <td>
-          <% toy.suppliers.each do |supplier| %>
-            <%= supplier.name %><br>
-          <% end %>
+        <td> <% total_sold = toy.sales.sum(:quantity_sold) %>
+             <%= total_sold %>
+        <td> <% average_rating = toy.ratings.average(:score) %>
+             <%= average_rating ? number_with_precision(average_rating, precision: 2) : 'No ratings' %>     
         </td>
       </tr>
     <% end %>

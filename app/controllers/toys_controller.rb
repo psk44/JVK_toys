@@ -3,7 +3,7 @@ class ToysController < ApplicationController
 
   # GET /toys or /toys.json
   def index
-    @toys = Toy.all
+    @toys = Toy.includes(:toy_type, :inventory).all
   end
 
   # GET /toys/1 or /toys/1.json
