@@ -2,21 +2,23 @@
 
 <%= form_with url: "/search", method: :get do |form| %>
   <div>
-    <%= form.label :query, "Search for:", class: "form-label" %>
-    <%= form.text_field :query, :value => @query, :class => "form-control" %>
+  <%= form.label :query, "Search for:", class: "form-label" %>
+  <%= form.text_field :query, :value => @query, :class => "form-control" %>
   </div>
 
   <div>
-    <%= form.label :toy_type_id, "Filter by toy type:", :class => "form-label" %>
-    <%= form.select :toy_type_id, ToyType.all.map { |t| [t.name, t.id] }, 
-      { selected: @toy_type_id, :include_blank => true }, 
-      { :class => "form-select" } %>
+  <%= form.label :toy_type_id, "Filter by toy type:", :class => "form-label" %>
+  <%= form.select :toy_type_id, ToyType.all.map { |t| [t.name, t.id] }, 
+    { selected: @toy_type_id, :include_blank => true }, 
+    { :class => "form-select" } %>
   </div>
 
   <div>
-  <%= form.submit "Search", class: "btn btn-primary" %>
+  <%= form.submit "Search", class: "btn btn-primary-outline" %>
   </div>
 <% end %>
+
+<p class="mt-3">You searched for '<%= @query %>'</p>
 
 <h2>Results</h2>
 
@@ -24,8 +26,8 @@
   <p>Hits: <%= @toys.count %></p>
   
   <ul>
-    <% @toys.each do |toy| %>
-      <li><%= toy.name %></li>
+    <% @toys.each do |t| %>
+      <li><%= t.name %></li>
     <% end %>
   </ul>
 <% end %>

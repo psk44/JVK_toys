@@ -1,9 +1,13 @@
-def index
-  @query = params[:query]
-  @toy_type_id = params[:toy_type_id]
+class SearchController < ApplicationController
+  def index
+    @query = params[:query]
+    @toy_type_id = params[:toy_type_id]
 
-  @toys = Toy.all
-  @toys = @toys.where("name LIKE ?", "%#{@query}%") if @query.present?
-  @toys = @toys.where(toy_type_id: @toy_type_id) if @toy_type_id.present?
+    @toys = Toy.all
+    @toys = @toys.where("name LIKE ?", "%#{@query}%") if @query.present?
+    @toys = @toys.where(toy_type_id: @toy_type_id) if @toy_type_id.present?
+
+    @search = Search.new(@query, :toy_type_id => @toy_type_id)
+    @toys = @search.results
+  end
 end
-

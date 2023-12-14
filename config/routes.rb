@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :toy_types
   resources :inventories
   resources :toys
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
+  get 'search', :to => "search#index"
+
   root 'dashboard#index'
 end

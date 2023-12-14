@@ -1,4 +1,10 @@
 class Sale < ApplicationRecord
   belongs_to :toy
-  has_and_belongs_to_many :suppliers
+  after_create :decrement_inventory
+
+  private
+
+  def decrement_inventory
+    toy.inventory.decrement!(:quantity, self.quantity_sold)
+  end
 end
