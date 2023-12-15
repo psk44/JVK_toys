@@ -4,10 +4,12 @@
 
 <div id="suppliers">
   <% @suppliers.each do |supplier| %>
+    <div class="card">
     <%= render supplier %>
     <p>
       <%= link_to "Show this supplier", supplier %>
     </p>
+    </div>
   <% end %>
 </div>
 
