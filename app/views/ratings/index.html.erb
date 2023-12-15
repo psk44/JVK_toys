@@ -2,13 +2,27 @@
 
 <h1>Ratings</h1>
 
-<div id="ratings">
-  <% @ratings.each do |rating| %>
-    <%= render rating %>
-    <p>
-      <%= link_to "Show this rating", rating %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Toy</th>
+      <th scope="col">Score</th>
+      <th scope="col">Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ratings.each do |rating| %>
+      <tr>
+        <td><%= rating.toy.name %></td>
+        <td>
+          <% 1.upto(5) do |i| %>
+            <%= i <= rating.score ? '★' : '☆' %>
+          <% end %>
+        </td>
+        <td><%= rating.review %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New rating", new_rating_path %>
+<%= link_to "New rating", new_rating_path, class: 'btn btn-success btn-sm' %>

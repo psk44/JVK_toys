@@ -7,7 +7,7 @@
       <th>Inventory</th>
       <th>Total Worth</th>
       <th>Sold</th>
-      <th>Ratings</th>
+      <th scope='col'style="width: 20%;">Ratings</th>
     </tr>
   </thead>
   <tbody>
@@ -19,10 +19,14 @@
         <td> <% total_sold = toy.sales.sum(:quantity_sold) %>
              <%= total_sold %>
         <td> <% average_rating = toy.ratings.average(:score) %>
-             <%= average_rating ? number_with_precision(average_rating, precision: 2) : 'No ratings' %>     
+          <% 5.times do |i| %>
+            <%= i < (average_rating || 0) ? '★' : '☆' %>
+            <% end %>
+            <%= "(#{average_rating ? '%.2f' % average_rating : 'No ratings'})" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= link_to "New sale", new_sale_path, class: 'btn btn-success btn-sm' %>
