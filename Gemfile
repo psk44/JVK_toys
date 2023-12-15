@@ -53,10 +53,10 @@ gem "bootsnap", require: false
   #gem 'acts-as-taggable-on'
   #gem 'paperclip'
   #gem 'ransack'
-  #gem 'chartkick'
-  #gem 'groupdate'
+  gem 'chartkick'
+  gem 'groupdate'
   gem 'bootstrap', '~> 5.1.3'
-  
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
